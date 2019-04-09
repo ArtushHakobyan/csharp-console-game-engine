@@ -9,6 +9,24 @@ namespace GameEngine
     public class Game
     {
         private List<GameObject> gameObjects = new List<GameObject>();
+
+        public void Add(GameObject gameObject)
+        {
+            gameObjects.Add(gameObject);
+        }
+
+        public bool Remove(GameObject gameObject)
+        {
+            return gameObjects.Remove(gameObject);
+        }
+
+        public void Update()
+        {
+            foreach(GameObject item in gameObjects)
+            {
+                item.Update();
+            }
+        }
     }
 
     public class GameObject
@@ -34,6 +52,11 @@ namespace GameEngine
         public GameObject()
         {
             
+        }
+
+        public virtual void Update()
+        {
+
         }
 
         public override string ToString()
