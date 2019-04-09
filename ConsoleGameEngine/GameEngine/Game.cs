@@ -20,11 +20,27 @@ namespace GameEngine
             return gameObjects.Remove(gameObject);
         }
 
+        public void Start()
+        {
+            foreach(GameObject item in gameObjects)
+            {
+                item.Start();
+            }
+        }
+
         public void Update()
         {
             foreach(GameObject item in gameObjects)
             {
                 item.Update();
+            }
+        }
+
+        public void Render()
+        {
+            foreach(GameObject item in gameObjects)
+            {
+                item.Render();
             }
         }
     }
@@ -54,9 +70,22 @@ namespace GameEngine
             
         }
 
+        public virtual void Start()
+        {
+
+        }
+
         public virtual void Update()
         {
 
+        }
+
+        public virtual void Render()
+        {
+            Console.SetCursorPosition(this.Pos.X, this.Pos.Y);
+            Console.ForegroundColor = this.Color;
+            Console.Write(this.Icon);
+            Console.ResetColor();
         }
 
         public override string ToString()
