@@ -8,7 +8,7 @@ namespace GameEngine
 {
     public class Game
     {
-        
+        private List<GameObject> gameObjects = new List<GameObject>();
     }
 
     public class GameObject
