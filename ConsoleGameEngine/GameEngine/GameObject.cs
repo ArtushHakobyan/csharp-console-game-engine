@@ -49,6 +49,11 @@ namespace GameEngine
             Console.ResetColor();
         }
 
+        public virtual void Destroy()
+        {
+
+        }
+
         public override string ToString()
         {
             return $"{this.Pos.ToString()}, {this.Icon}, {this.Color}";

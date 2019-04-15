@@ -72,6 +72,12 @@ namespace GameEngine
             gameEnd = true;
         }
 
+        public void DestroyObject(GameObject obj)
+        {
+            obj.Destroy();
+            gameObjects.Remove(obj);
+        }
+
         private static void CheckForKeys()
         {
             ConsoleKey key;
