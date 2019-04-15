@@ -10,7 +10,7 @@ namespace GameEngine
     {
         public char Icon { get; set; }
         public ConsoleColor Color { get; set; }
-        public Position Pos;
+        public Position Pos { get; set; }
 
         public GameObject(int x, int y, char ico, ConsoleColor col)
         {

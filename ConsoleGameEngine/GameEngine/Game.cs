@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 
 namespace GameEngine
@@ -12,6 +9,7 @@ namespace GameEngine
     public class Game
     {
         private List<GameObject> gameObjects = new List<GameObject>();
+        private bool gameEnd = false;
 
         public static event KeyPressEvent OnRightKey;
         public static event KeyPressEvent OnLeftKey;
@@ -33,15 +31,29 @@ namespace GameEngine
             Thread keysThread = new Thread(CheckForKeys);
             keysThread.IsBackground = true;
             keysThread.Start();
-            foreach(GameObject item in gameObjects)
+
+            foreach (GameObject item in gameObjects)
             {
                 item.Start();
+            }
+
+            while (!gameEnd)
+            {
+                Console.Clear();
+                foreach (GameObject obj in gameObjects)
+                {
+                    obj.Render();
+                }
+                foreach (GameObject obj in gameObjects)
+                {
+                    obj.Update();
+                }
             }
         }
 
         public void Update()
         {
-            foreach(GameObject item in gameObjects)
+            foreach (GameObject item in gameObjects)
             {
                 item.Update();
             }
@@ -49,10 +61,15 @@ namespace GameEngine
 
         public void Render()
         {
-            foreach(GameObject item in gameObjects)
+            foreach (GameObject item in gameObjects)
             {
                 item.Render();
             }
+        }
+
+        public void EndGame()
+        {
+            gameEnd = true;
         }
 
         private static void CheckForKeys()
