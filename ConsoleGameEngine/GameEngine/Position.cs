@@ -48,6 +48,13 @@ namespace GameEngine
             }
         }
 
+        public static Position operator +(Position p1, Position p2)
+        {
+            Position newPos = new Position(p1.X + p2.X, p1.Y + p2.Y);
+
+            return newPos;
+        }
+
         public override string ToString()
         {
             return $"({this.X} , {this.Y})";
