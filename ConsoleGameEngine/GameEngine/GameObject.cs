@@ -11,16 +11,16 @@ namespace GameEngine
         public string Name { get; set; }
         public char Icon { get; set; }
         public ConsoleColor Color { get; set; }
-        public Position Pos { get; set; }
+        public Vector2D Pos { get; set; }
 
         public GameObject(int x, int y, char ico, ConsoleColor col)
         {
-            this.Pos = new Position(x, y);
+            this.Pos = new Vector2D(x, y);
             this.Icon = ico;
             this.Color = col;
         }
 
-        public GameObject(char ico, ConsoleColor col, Position pos)
+        public GameObject(char ico, ConsoleColor col, Vector2D pos)
         {
             this.Icon = ico;
             this.Color = col;
