@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace GameEngine
 {
-    public delegate void KeyPressEvent();
+    public delegate void KeyPressEvent(GameObjects gameObjects);
 
     public class Game
     {
@@ -75,7 +75,7 @@ namespace GameEngine
             gameObjects.Remove(obj);
         }
 
-        private static void CheckForKeys()
+        private void CheckForKeys()
         {
             ConsoleKey key;
 
@@ -86,16 +86,16 @@ namespace GameEngine
                 switch (key)
                 {
                     case ConsoleKey.RightArrow:
-                        Game.OnRightKey();
+                        Game.OnRightKey(gameObjects);
                         break;
                     case ConsoleKey.LeftArrow:
-                        Game.OnLeftKey();
+                        Game.OnLeftKey(gameObjects);
                         break;
                     case ConsoleKey.UpArrow:
-                        Game.OnUpKey();
+                        Game.OnUpKey(gameObjects);
                         break;
                     case ConsoleKey.DownArrow:
-                        Game.OnDownKey();
+                        Game.OnDownKey(gameObjects);
                         break;
                 }
             }
