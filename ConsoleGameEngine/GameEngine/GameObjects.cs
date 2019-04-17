@@ -67,5 +67,10 @@ namespace GameEngine
         {
             return _gameObjects.Remove(obj);
         }
+
+        public bool Remove(string objectName)
+        {
+            return _gameObjects.Remove(this[objectName]);
+        }
     }
 }
