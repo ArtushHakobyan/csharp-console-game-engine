@@ -11,6 +11,11 @@ namespace GameEngine
     {
         private List<GameObject> _gameObjects = new List<GameObject>();
 
+        public static event KeyPressEvent OnRightKey;
+        public static event KeyPressEvent OnLeftKey;
+        public static event KeyPressEvent OnUpKey;
+        public static event KeyPressEvent OnDownKey;
+
         public int Count => _gameObjects.Count;
 
         public GameObject this[string name]
