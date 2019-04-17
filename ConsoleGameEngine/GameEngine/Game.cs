@@ -16,6 +16,8 @@ namespace GameEngine
         public static event KeyPressEvent OnUpKey;
         public static event KeyPressEvent OnDownKey;
 
+        public int FPS { get; set; }
+
         public void Add(GameObject gameObject)
         {
             gameObjects.Add(gameObject);
@@ -40,14 +42,9 @@ namespace GameEngine
             while (!gameEnd)
             {
                 Console.Clear();
-                foreach (GameObject obj in gameObjects)
-                {
-                    obj.Render();
-                }
-                foreach (GameObject obj in gameObjects)
-                {
-                    obj.Update();
-                }
+                Update();
+                Render();
+                Thread.Sleep(1000/FPS);
             }
         }
 
