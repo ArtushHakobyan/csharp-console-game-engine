@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameEngine
 {
-    public class GameObjects
+    public class GameObjects : IEnumerable<GameObject>
     {
         private List<GameObject> _gameObjects = new List<GameObject>();
 
@@ -71,6 +72,16 @@ namespace GameEngine
         public bool Remove(string objectName)
         {
             return _gameObjects.Remove(this[objectName]);
+        }
+
+        public IEnumerator<GameObject> GetEnumerator()
+        {
+            return _gameObjects.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return _gameObjects.GetEnumerator();
         }
     }
 }
