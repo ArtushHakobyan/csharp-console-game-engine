@@ -8,7 +8,7 @@ namespace GameEngine
 
     public class Game
     {
-        private List<GameObject> gameObjects = new List<GameObject>();
+        private GameObjects gameObjects = new GameObjects();
         private bool gameEnd = false;
 
         public static event KeyPressEvent OnRightKey;
