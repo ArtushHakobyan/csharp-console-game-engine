@@ -8,6 +8,7 @@ namespace GameEngine
 {
     public class GameObject
     {
+        public string Name { get; set; }
         public char Icon { get; set; }
         public ConsoleColor Color { get; set; }
         public Position Pos { get; set; }
