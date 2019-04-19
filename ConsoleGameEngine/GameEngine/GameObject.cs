@@ -55,6 +55,11 @@ namespace GameEngine
 
         }
 
+        public virtual void Collision(GameObject obj)
+        {
+
+        }
+
         public override string ToString()
         {
             return $"{this.Pos.ToString()}, {this.Icon}, {this.Color}";

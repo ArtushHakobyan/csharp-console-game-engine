@@ -50,6 +50,16 @@ namespace GameEngine
 
         public void Update()
         {
+            foreach (GameObject obj1 in gameObjects)
+            {
+                foreach (GameObject obj2 in gameObjects)
+                {
+                    if(!obj1.Equals(obj2) && obj1.Pos == obj2.Pos)
+                    {
+                        obj2.Collision(obj1);
+                    }
+                }
+            }
             foreach (GameObject item in gameObjects)
             {
                 item.Update();
