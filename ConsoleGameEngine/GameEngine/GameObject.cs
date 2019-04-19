@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace GameEngine
 {
+    /// <summary>
+    /// Base game object class.
+    /// </summary>
     public class GameObject
     {
         public string Name { get; set; }
@@ -31,17 +34,23 @@ namespace GameEngine
         {
 
         }
-
+        /// <summary>
+        /// This method is called only one time when the game starts.
+        /// </summary>
         public virtual void Start()
         {
 
         }
-
+        /// <summary>
+        /// This method will be called in every frame.
+        /// </summary>
         public virtual void Update()
         {
 
         }
-
+        /// <summary>
+        /// Renders the object
+        /// </summary>
         public virtual void Render()
         {
             Console.SetCursorPosition(this.Pos.X, this.Pos.Y);
@@ -49,12 +58,17 @@ namespace GameEngine
             Console.Write(this.Icon);
             Console.ResetColor();
         }
-
+        /// <summary>
+        /// Is called when tring to destroy object
+        /// </summary>
         public virtual void Destroy()
         {
 
         }
-
+        /// <summary>
+        /// This method is called when other game object collides to this
+        /// </summary>
+        /// <param name="obj">The game object that collides with this</param>
         public virtual void Collision(GameObject obj)
         {
 
