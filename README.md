@@ -1,8 +1,10 @@
-# C# Console Game Engine
+# C# Entity Game Engine
+
+<img src="https://user-images.githubusercontent.com/44090242/56765662-632c2380-675c-11e9-9a1c-bd321d0291d8.png" width="300" />
 
 ## Definition
 
-Simple game engine for console games
+Simple game engine based on Entity Component model.
 
 ## Getting Started
 
@@ -58,3 +60,10 @@ game.Add(snake);
 ```csharp
 game.Start();
 ```
+
+## Authors
+
+* **Artush Hakobyan** - *Initial work* - [ArtushHakobyan](https://github.com/ArtushHakobyan)
+
+## Example Projects
+* [Snake Game](https://github.com/ArtushHakobyan/snake-with-csharp)
