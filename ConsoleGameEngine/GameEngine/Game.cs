@@ -14,11 +14,6 @@ namespace GameEngine
         private GameObjects gameObjects = new GameObjects();
         private bool gameEnd = false;
 
-        public static event KeyPressEvent OnRightKey;
-        public static event KeyPressEvent OnLeftKey;
-        public static event KeyPressEvent OnUpKey;
-        public static event KeyPressEvent OnDownKey;
-
         public int FPS { get; set; }
         /// <summary>
         /// Adds new game object to main gameObject list.
@@ -42,10 +37,6 @@ namespace GameEngine
         /// </summary>
         public void Start()
         {
-            Thread keysThread = new Thread(CheckForKeys);
-            keysThread.IsBackground = true;
-            keysThread.Start();
-
             foreach (GameObject item in gameObjects)
             {
                 item.Start();
@@ -105,34 +96,6 @@ namespace GameEngine
         {
             obj.Destroy();
             gameObjects.Remove(obj);
-        }
-        /// <summary>
-        /// Checking if key is pressed.
-        /// </summary>
-        private void CheckForKeys()
-        {
-            ConsoleKey key;
-
-            while (true)
-            {
-                key = Console.ReadKey().Key;
-
-                switch (key)
-                {
-                    case ConsoleKey.RightArrow:
-                        Game.OnRightKey(gameObjects);
-                        break;
-                    case ConsoleKey.LeftArrow:
-                        Game.OnLeftKey(gameObjects);
-                        break;
-                    case ConsoleKey.UpArrow:
-                        Game.OnUpKey(gameObjects);
-                        break;
-                    case ConsoleKey.DownArrow:
-                        Game.OnDownKey(gameObjects);
-                        break;
-                }
-            }
         }
     }
 }
